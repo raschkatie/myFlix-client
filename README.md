@@ -6,6 +6,8 @@ My Flix Client is the client-side web application that allows users to access mo
 
 The current website can be found and tested at [http://localhost:1234](http://localhost:1234).
 
+_Please note that the website may need to be manually typed into your browser_
+
 ## Project Dependencies
 
 - Parcel (dev)
