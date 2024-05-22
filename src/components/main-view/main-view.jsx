@@ -32,6 +32,26 @@ export const MainView = () => {
 
     const [selectedMovie, setSelectedMovie] = useState(null);
 
+<<<<<<< Updated upstream
+=======
+    useEffect(() => {
+        fetch("https://kr-my-flix.onrender.com/movies")
+            .then((response) => response.json())
+            .then((movies) => {
+                const moviesApi = movies.map((movie) => {
+                    return {
+                        id: movie._id,
+                        title: movie.title,
+                        description: movie.description,
+                        genre: movie.genre,
+                        director: movie.director
+                    }
+                });
+                setMovies(moviesApi);
+            })
+    }, []);
+
+>>>>>>> Stashed changes
     if (selectedMovie) {
         return (
             <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
