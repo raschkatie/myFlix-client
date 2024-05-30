@@ -1,4 +1,11 @@
 $primary: Tan;
 $body-bg: AntiqueWhite;
+$body-color: SaddleBrown;
+
+body {
+    margin-top: 5%;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+}
 
 @import '~bootstrap/scss/bootstrap.scss';
