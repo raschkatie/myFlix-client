@@ -37,10 +37,9 @@ export const SignupView = () => {
 
     return (
         <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="formUsername">
+          <Form.Group className="form-field" controlId="formUsername">
         <Form.Label>Username:</Form.Label>
           <Form.Control
-            className="form-field"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -49,10 +48,9 @@ export const SignupView = () => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formPassword">
+        <Form.Group className="form-field" controlId="formPassword">
           <Form.Label>Password:</Form.Label>
             <Form.Control
-              className="form-field"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -60,10 +58,9 @@ export const SignupView = () => {
             />
         </Form.Group>
 
-        <Form.Group controlId="formEmail">
+        <Form.Group className="form-field" controlId="formEmail">
           <Form.Label>Email:</Form.Label>
             <Form.Control
-              className="form-field"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -71,10 +68,9 @@ export const SignupView = () => {
             />
         </Form.Group>
 
-        <Form.Group controlId="formBirthday">
+        <Form.Group className="form-field" controlId="formBirthday">
           <Form.Label>Birthday:</Form.Label>
             <Form.Control
-              className="form-field"
               type="date"
               value={birthday}
               onChange={(e) => setBirthday(e.target.value)}
