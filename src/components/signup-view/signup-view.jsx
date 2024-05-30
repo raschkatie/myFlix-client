@@ -37,20 +37,22 @@ export const SignupView = () => {
 
     return (
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="form-field" controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-          <Form.Control
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            minLength="3"
-          />
-        </Form.Group>
+          <Form.Group controlId="formUsername">
+            <Form.Label>Username:</Form.Label>
+              <Form.Control
+                className="form-field"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                minLength="3"
+              />
+          </Form.Group>
 
-        <Form.Group className="form-field" controlId="formPassword">
+        <Form.Group controlId="formPassword">
           <Form.Label>Password:</Form.Label>
             <Form.Control
+              className="form-field"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -58,9 +60,10 @@ export const SignupView = () => {
             />
         </Form.Group>
 
-        <Form.Group className="form-field" controlId="formEmail">
+        <Form.Group controlId="formEmail">
           <Form.Label>Email:</Form.Label>
             <Form.Control
+              className="form-field"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -68,9 +71,10 @@ export const SignupView = () => {
             />
         </Form.Group>
 
-        <Form.Group className="form-field" controlId="formBirthday">
+        <Form.Group controlId="formBirthday">
           <Form.Label>Birthday:</Form.Label>
             <Form.Control
+              className="form-field"
               type="date"
               value={birthday}
               onChange={(e) => setBirthday(e.target.value)}
