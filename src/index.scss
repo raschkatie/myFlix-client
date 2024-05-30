@@ -2,14 +2,14 @@ $primary: Tan;
 $body-bg: AntiqueWhite;
 $body-color: SaddleBrown;
 
+@import '~bootstrap/scss/bootstrap.scss';
+
 body {
-    margin-top: 5%;
+    margin-top: 20px;
     font-family: "Libre Baskerville", serif;
     font-weight: 400;
 }
 
 .form-field {
-    border-color: SaddleBrown;
+    border-color: saddlebrown;
 }
-
-@import '~bootstrap/scss/bootstrap.scss';

@@ -4,10 +4,6 @@ body {
   font-weight: 400;
 }
 
-.form-field {
-  border-color: #8b4513;
-}
-
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
