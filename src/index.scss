@@ -1,5 +1,16 @@
-$color: steelblue;
+$primary: Tan;
+$body-bg: AntiqueWhite;
+$body-color: SaddleBrown;
 
-.my-flix {
-    color: $color;
+@import '~bootstrap/scss/bootstrap.scss';
+
+body {
+    margin-top: 20px;
+    font-family: "Libre Baskerville", serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.form-field {
+    border-color: saddlebrown;
 }
