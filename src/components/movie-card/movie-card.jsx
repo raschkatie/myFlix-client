@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 export const MovieCard = ({ movie, isFavorite }) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
-    const [user, setUser] = useState(storedUser? storedUser : null);
+    const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
     const [addTitle, setAddTitle] = useState("");
     const [removeTitle, setRemoveTitle] = useState("");
