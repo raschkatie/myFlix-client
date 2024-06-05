@@ -100,14 +100,14 @@ export const MovieCard = ({ movie, isFavorite }) => {
                         variant="primary"
                         onClick={handleRemoveFromFavorites}
                     >
-                        Remove
+                        Remove from Favorites
                     </Button>
                 ) : (
                     <Button
                         variant="primary"
                         onClick={handleAddToFavorites}
                     >
-                        Add
+                        Add to Favorites
                     </Button>
                 )}
             </Card>
