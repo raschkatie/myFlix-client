@@ -41,7 +41,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
         };
 
         const removeFromFavorites = () => {
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${encodeURIComponent(movie.Title)}`,
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`,
                 {
                     method: "DELETE",
                     headers: {
