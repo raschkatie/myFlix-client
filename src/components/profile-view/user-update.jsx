@@ -8,6 +8,7 @@ export const UserUpdate = () => {
     const [password, setPassword] = useState(storedUser.Password);
     const [email, setEmail] = useState(storedUser.Email);
     const [birthday, setBirthday] = useState(storedUser.Birthday);
+    const [token, setStoredToken] = useState(localStorage.getItem("token"));
     const [user, setUser] = useState();
 
     const data = {
