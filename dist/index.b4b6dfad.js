@@ -27639,7 +27639,7 @@ const MovieCard = ({ movie, isFavorite })=>{
     const [removeTitle, setRemoveTitle] = (0, _react.useState)("");
     (0, _react.useEffect)(()=>{
         const addToFavorites = ()=>{
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${encodeURIComponent(movie.Title)}`, {
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -42634,7 +42634,7 @@ const FavoriteMovies = ({ movies, user })=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                         md: 4,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Link, {
-                            to: `/movies/${encodeURIComponent(movie.id)}`,
+                            to: `/movies/${movie.id}`,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 movie: movie,
                                 isFavorite: user.favoriteMovies
