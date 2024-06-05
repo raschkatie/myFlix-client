@@ -39,7 +39,7 @@ export const UserUpdate = () => {
         })
         .then((user) => {
             if (user) {
-                localStorage.setItem('user', JSON.stringify(user));
+                localStorage.setItem("user", JSON.stringify(user));
                 setUser(user);
             }
         })
@@ -51,18 +51,18 @@ export const UserUpdate = () => {
     return (
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formUsername">
-            <Form.Label>Username:</Form.Label>
+            <Form.Label>New Username:</Form.Label>
               <Form.Control
                 className="form-field"
                 type="text"
-                value={username}
+                // value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 minLength="3"
               />
           </Form.Group>
 
         <Form.Group controlId="formPassword">
-          <Form.Label>Password:</Form.Label>
+          <Form.Label>New Password:</Form.Label>
             <Form.Control
               className="form-field"
               type="password"
@@ -72,7 +72,7 @@ export const UserUpdate = () => {
         </Form.Group>
 
         <Form.Group controlId="formEmail">
-          <Form.Label>Email:</Form.Label>
+          <Form.Label>New Email:</Form.Label>
             <Form.Control
               className="form-field"
               type="email"
@@ -82,7 +82,7 @@ export const UserUpdate = () => {
         </Form.Group>
 
         <Form.Group controlId="formBirthday">
-          <Form.Label>Birthday:</Form.Label>
+          <Form.Label>New Birthday:</Form.Label>
             <Form.Control
               className="form-field"
               type="date"
