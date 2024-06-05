@@ -19,6 +19,7 @@ export const ProfileView = ({ user }) => {
                 />
             </div>
             <div>
+                <p>Fill out the form below to update your account information.</p>
                 <UserUpdate />
             </div>
             <div>
