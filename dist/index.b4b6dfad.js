@@ -27629,7 +27629,7 @@ var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 const MovieCard = ({ movie })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-        to: `/movies/${encodedURIComponent(movie.id)}`,
+        to: `/movies/${encodeURIComponent(movie.id)}`,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
             className: "h-100",
             children: [
