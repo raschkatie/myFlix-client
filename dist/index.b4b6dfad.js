@@ -42253,7 +42253,7 @@ const UserUpdate = ()=>{
     };
     const handleSubmit = (event)=>{
         event.preventDefault(event);
-        fetch(`https://kr-my-flix.onrender.com/users/${user.username}`, {
+        fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
@@ -42423,7 +42423,7 @@ const UserDelete = ()=>{
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const [storedToken, setStoredToken] = (0, _react.useState)(localStorage.getItem("token"));
     const handleDelete = ()=>{
-        fetch(`https://kr-my-flix.onrender.com/users/${storedUser.username}`, {
+        fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${storedToken}`,

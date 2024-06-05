@@ -6,7 +6,7 @@ export const UserDelete = () => {
     const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
 
     const handleDelete = () => {
-        fetch(`https://kr-my-flix.onrender.com/users/${storedUser.Username}`, {
+        fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${storedToken}`,
             "Content-Type": "application/json"
