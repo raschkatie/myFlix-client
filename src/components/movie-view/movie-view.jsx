@@ -4,29 +4,29 @@ import './movie-view.scss';
 
 export const MovieView = ({ movie }) => {
     const { movieId } = useParams();
-    const movie = movies.find((m) => m.id === movieId);
+    const movieItem = movies.find((m) => m.id === movieId);
     
     return (
         <div>
 
             <div>
-                <img className="movie-image" src={movie.image} alt={movie.title} />
+                <img className="movie-image" src={movieItem.image} alt={movieItem.title} />
             </div>
             <div>
                 <span className="bold-title">Title: </span>
-                <span>{movie.title}</span>
+                <span>{movieItem.title}</span>
             </div>
             <div>
                 <span className="bold-title">Description: </span>
-                <span>{movie.description}</span>
+                <span>{movieItem.description}</span>
             </div>
             <div>
                 <span className="bold-title">Director: </span>
-                <span>{movie.director.Name}</span>
+                <span>{movieItem.director.Name}</span>
             </div>
             <div>
                 <span className="bold-title">Genre: </span>
-                <span>{movie.genre.Name}</span>
+                <span>{movieItem.genre.Name}</span>
             </div>
 
             <Link to={`/`}>
