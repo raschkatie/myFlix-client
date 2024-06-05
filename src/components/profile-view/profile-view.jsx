@@ -2,6 +2,7 @@ import React from "react";
 import { UserInfo } from "./user-info";
 import { UserUpdate } from "./user-update";
 import { UserDelete } from "./user-delete";
+import { FavoriteMovies } from "./favorite-movies";
 
 export const ProfileView = ({ user }) => {    
     if (!user) {
@@ -24,6 +25,9 @@ export const ProfileView = ({ user }) => {
             </div>
             <div>
                 <UserDelete />
+            </div>
+            <div>
+                <FavoriteMovies movies={movies} user={user} />
             </div>
         </>
     );
