@@ -14,7 +14,7 @@ export const FavoriteMovies = ({ movies, user }) => {
                 {favoriteMovies.map((movie) => {
                     return (
                         <Col md={4}>
-                            <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+                            <Link to={`/movies/${movie.id}`}>
                                 <MovieCard
                                     movie={movie}
                                     isFavorite={user.favoriteMovies}
