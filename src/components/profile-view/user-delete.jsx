@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 
 export const UserDelete = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const storedUser = JSON.parse(localStorage.getItem("user"));
     const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
 
     const handleDelete = () => {
-        fetch(`https://kr-my-flix.onrender.com/users/${user.username}`, {
+        fetch(`https://kr-my-flix.onrender.com/users/${storedUser.username}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${storedToken}`,
             "Content-Type": "application/json"
@@ -25,8 +25,8 @@ export const UserDelete = () => {
 
     return (
         <div>
-            <h2>Delete Account</h2>
-            <h4>Warning! This action cannot be undone.</h4>
+            <h4>Delete Account</h4>
+            <p>Warning! This action cannot be undone.</p>
             <Button 
                 onClick={handleDelete}>
                     Delete Account
