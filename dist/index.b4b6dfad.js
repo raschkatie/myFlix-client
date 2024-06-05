@@ -42410,6 +42410,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "UserDelete", ()=>UserDelete);
 const UserDelete = ()=>{
     const user = JSON.parse(localStorage.getItem("user"));
+    const token = JSON.parse(localStorage.getItem("token"));
     fetch(`https://kr-my-flix.onrender.com/users/${user.username}`, {
         method: "DELETE",
         headers: {
@@ -42502,7 +42503,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                                         as: (0, _reactRouterDom.Link),
-                                        to: "/users/:userId",
+                                        to: "/profile",
                                         children: "Profile"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
