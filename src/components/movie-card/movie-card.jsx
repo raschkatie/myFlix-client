@@ -90,9 +90,6 @@ export const MovieCard = ({ movie, isFavorite }) => {
                 <Card.Body>
                     <Card.Title>{movie.title}</Card.Title>
                     <Card.Text>{movie.description}</Card.Text>
-                    <Button variant="primary" onClick={handleToggleFavorite}>
-                        {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
-                    </Button>
                 </Card.Body>
             </Card>
             <Card>
