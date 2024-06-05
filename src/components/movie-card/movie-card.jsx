@@ -14,7 +14,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
 
     useEffect(() => {
         const addToFavorites = () => {
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${encodeURIComponent(movie.Title)}`,
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${encodeURIComponent(movie._id)}`,
                 {
                     method: "POST",
                     headers: {
@@ -41,7 +41,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
         };
 
         const removeFromFavorites = () => {
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${encodeURIComponent(movie.Title)}`,
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${encodeURIComponent(movie._id)}`,
                 {
                     method: "DELETE",
                     headers: {
