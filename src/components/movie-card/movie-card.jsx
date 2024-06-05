@@ -14,7 +14,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
 
     useEffect(() => {
         const addToFavorites = () => {
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.username)}/favorites/${encodeURIComponent(movie.title)}`,
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${encodeURIComponent(movie.Title)}`,
                 {
                     method: "POST",
                     headers: {
@@ -24,11 +24,11 @@ export const MovieCard = ({ movie, isFavorite }) => {
                 })
             .then((response) => {
                 if (!response.ok) {
-                    alert("Uh oh! Something went wrong");
-                }
+                    alert("Uh oh! Couldn't add to Favorites");
+                } else {
                 alert("Movie added to Favorites");
                 return response.json();
-            })
+            }})
             .then((user) => {
                 if (user) {
                     localStorage.setItem("user", JSON.stringify(user));
@@ -41,7 +41,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
         };
 
         const removeFromFavorites = () => {
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.username)}/favorites/${encodeURIComponent(movie.title)}`,
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${encodeURIComponent(movie.Title)}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -51,11 +51,11 @@ export const MovieCard = ({ movie, isFavorite }) => {
                 })
             .then((response) => {
                 if (!response.ok) {
-                    alert("Uh oh! Something went wrong");
-                }
+                    alert("Uh oh! Couldn't remove from Favorites");
+                } else {
                 alert("Movie removed from Favorites");
                 return response.json();
-            })
+            }})
             .then((user) => {
                 if (user) {
                     localStorage.setItem("user", JSON.stringify(user));
