@@ -4,7 +4,7 @@ import { UserUpdate } from "./user-update";
 import { UserDelete } from "./user-delete";
 import { FavoriteMovies } from "./favorite-movies";
 
-export const ProfileView = ({ user }) => {    
+export const ProfileView = ({ user, movies }) => {    
     if (!user) {
         return;
     }
