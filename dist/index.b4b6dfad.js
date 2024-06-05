@@ -42291,8 +42291,10 @@ const UserUpdate = ()=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                         className: "form-field",
                         type: "text",
+                        value: username,
                         onChange: (e)=>setUsername(e.target.value),
-                        minLength: "3"
+                        minLength: "3",
+                        required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
                         lineNumber: 56,
@@ -42311,22 +42313,24 @@ const UserUpdate = ()=>{
                         children: "New Password:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 65,
+                        lineNumber: 67,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                         className: "form-field",
                         type: "password",
-                        onChange: (e)=>setPassword(e.target.value)
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value),
+                        required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 66,
+                        lineNumber: 68,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 64,
+                lineNumber: 66,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -42336,22 +42340,24 @@ const UserUpdate = ()=>{
                         children: "New Email:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 74,
+                        lineNumber: 78,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                         className: "form-field",
                         type: "email",
-                        onChange: (e)=>setEmail(e.target.value)
+                        value: email,
+                        onChange: (e)=>setEmail(e.target.value),
+                        required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 75,
+                        lineNumber: 79,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 73,
+                lineNumber: 77,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -42361,22 +42367,24 @@ const UserUpdate = ()=>{
                         children: "New Birthday:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 83,
+                        lineNumber: 89,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                         className: "form-field",
                         type: "date",
-                        onChange: (e)=>setBirthday(e.target.value)
+                        value: birthday,
+                        onChange: (e)=>setBirthday(e.target.value),
+                        required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 84,
+                        lineNumber: 90,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 82,
+                lineNumber: 88,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -42385,7 +42393,7 @@ const UserUpdate = ()=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 91,
+                lineNumber: 99,
                 columnNumber: 9
             }, undefined)
         ]
