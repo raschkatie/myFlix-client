@@ -27572,6 +27572,7 @@ const MainView = ()=>{
                         user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                             path: "/profile",
                             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
+                                movies: movies,
                                 user: user
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
@@ -42128,7 +42129,7 @@ var _userInfo = require("./user-info");
 var _userUpdate = require("./user-update");
 var _userDelete = require("./user-delete");
 var _favoriteMovies = require("./favorite-movies");
-const ProfileView = ({ user })=>{
+const ProfileView = ({ user, movies })=>{
     if (!user) return;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
