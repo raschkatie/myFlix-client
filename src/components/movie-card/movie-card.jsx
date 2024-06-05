@@ -4,13 +4,84 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-export const MovieCard = ({ movie, onToggleFavorite }) => {
-    const [isFavorite, setIsFavorite] = useState(false);
+export const MovieCard = ({ movie, isFavorite }) => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
+    const [user, setUser] = useState(storedUser? storedUser : null);
+    const [token, setToken] = useState(storedToke? storedToken : null);
+    const [addTitle, setAddTitle] = useState("");
+    const [removeTitle, setRemoveTitle] = useState("");
 
-    const handleToggleFavorite = () => {
-        setIsFavorite(!isFavorite);
-        onToggleFavorite(movie.id, !isFavorite);
-    };
+    useEffect(() => {
+        const addToFavorites = () => {
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.username)}/favorites/${encodeURIComponent(movie.title)}`,
+                {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json"
+                    },
+                })
+            .then((response) => {
+                if (!response.ok) {
+                    alert("Uh oh! Something went wrong");
+                }
+                alert("Movie added to Favorites");
+                return response.json();
+            })
+            .then((user) => {
+                if (user) {
+                    localStorage.setItem("user", JSON.stringify(user));
+                    setUser(user);
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        };
+
+        const removeFromFavorites = () => {
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.username)}/favorites/${encodeURIComponent(movie.title)}`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json"
+                    },
+                })
+            .then((response) => {
+                if (!response.ok) {
+                    alert("Uh oh! Something went wrong");
+                }
+                alert("Movie removed from Favorites");
+                return response.json();
+            })
+            .then((user) => {
+                if (user) {
+                    localStorage.setItem("user", JSON.stringify(user));
+                    setUser(user);
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        };
+
+        if (addTitle) {
+            addToFavorites();
+        }
+        if (removeTitle) {
+            removeFromFavorites();
+        }
+    }, [addTitle, removeTitle, token]);
+
+    const handleAddToFavorites = () => {
+        setAddTitle(movie.title);
+    }
+
+    const handleRemoveFromFavorites = () => {
+        setRemoveTitle(movie.title);
+    }
     
     return (
         <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
@@ -23,6 +94,23 @@ export const MovieCard = ({ movie, onToggleFavorite }) => {
                         {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
                     </Button>
                 </Card.Body>
+            </Card>
+            <Card>
+                {isFavorite ? (
+                    <Button 
+                        variant="primary"
+                        onClick={handleRemoveFromFavorites}
+                    >
+                        Remove
+                    </Button>
+                ) : (
+                    <Button
+                        variant="primary"
+                        onClick={handleAddToFavorites}
+                    >
+                        Add
+                    </Button>
+                )}
             </Card>
         </Link>
     );
@@ -42,5 +130,4 @@ MovieCard.propTypes = {
             Description: PropTypes.string.isRequired
         })
     }).isRequired,
-    onToggleFavorite: PropTypes.func.isRequired,
 };
