@@ -27689,8 +27689,7 @@ MovieCard.propTypes = {
             Name: (0, _propTypes.PropTypes).string.isRequired,
             Description: (0, _propTypes.PropTypes).string.isRequired
         })
-    }).isRequired,
-    onMovieClick: (0, _propTypes.PropTypes).func.isRequired
+    }).isRequired
 };
 var _c;
 $RefreshReg$(_c, "MovieCard");

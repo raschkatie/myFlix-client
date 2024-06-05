@@ -57,7 +57,6 @@ export const UserUpdate = () => {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                required
                 minLength="3"
               />
           </Form.Group>
@@ -69,7 +68,6 @@ export const UserUpdate = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
             />
         </Form.Group>
 
@@ -80,7 +78,6 @@ export const UserUpdate = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
         </Form.Group>
 
@@ -91,7 +88,6 @@ export const UserUpdate = () => {
               type="date"
               value={birthday}
               onChange={(e) => setBirthday(e.target.value)}
-              required
             />
         </Form.Group>
 
