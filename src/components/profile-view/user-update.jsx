@@ -20,7 +20,7 @@ export const UserUpdate = () => {
     const handleSubmit = (event) => {
         event.preventDefault(event);
 
-        fetch(`https://kr-my-flix.onrender.com/users/${user.username}`, {
+        fetch(`https://kr-my-flix.onrender.com/users/${user.Username}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
