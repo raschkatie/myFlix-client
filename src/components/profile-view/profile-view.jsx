@@ -3,9 +3,7 @@ import { UserInfo } from "./user-info";
 import { UserUpdate } from "./user-update";
 import { UserDelete } from "./user-delete";
 
-export const ProfileView = ({ user, movies }) => {
-    const { Username, Password, Email, Birthday } = user;
-    
+export const ProfileView = ({ user }) => {    
     if (!user) {
         return;
     }
