@@ -42281,7 +42281,7 @@ const UserUpdate = ()=>{
                 controlId: "formUsername",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                        children: "Username:"
+                        children: "New Username:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
                         lineNumber: 54,
@@ -42290,7 +42290,7 @@ const UserUpdate = ()=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                         className: "form-field",
                         type: "text",
-                        value: username,
+                        // value={username}
                         onChange: (e)=>setUsername(e.target.value),
                         minLength: "3"
                     }, void 0, false, {
@@ -42308,7 +42308,7 @@ const UserUpdate = ()=>{
                 controlId: "formPassword",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                        children: "Password:"
+                        children: "New Password:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
                         lineNumber: 65,
@@ -42334,7 +42334,7 @@ const UserUpdate = ()=>{
                 controlId: "formEmail",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                        children: "Email:"
+                        children: "New Email:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
                         lineNumber: 75,
@@ -42360,7 +42360,7 @@ const UserUpdate = ()=>{
                 controlId: "formBirthday",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                        children: "Birthday:"
+                        children: "New Birthday:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
                         lineNumber: 85,
@@ -42418,24 +42418,58 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "UserDelete", ()=>UserDelete);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
 const UserDelete = ()=>{
     _s();
     const user = JSON.parse(localStorage.getItem("user"));
     const [storedToken, setStoredToken] = (0, _react.useState)(localStorage.getItem("token"));
-    fetch(`https://kr-my-flix.onrender.com/users/${user.username}`, {
-        method: "DELETE",
-        headers: {
-            Authorization: `Bearer ${storedToken}`,
-            "Content-Type": "application/json"
-        }
-    }).then((response)=>{
-        if (response.ok) {
-            alert("Account has been successfully deleted");
-            localStorage.clear();
-        } else alert("Uh oh! There was an issue.");
-    });
+    const handleDelete = ()=>{
+        fetch(`https://kr-my-flix.onrender.com/users/${user.username}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${storedToken}`,
+                "Content-Type": "application/json"
+            }
+        }).then((response)=>{
+            if (response.ok) {
+                alert("Account has been successfully deleted");
+                localStorage.clear();
+            } else alert("Uh oh! There was an issue.");
+        });
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "Delete Account"
+            }, void 0, false, {
+                fileName: "src/components/profile-view/user-delete.jsx",
+                lineNumber: 28,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                children: "Warning! This action cannot be undone."
+            }, void 0, false, {
+                fileName: "src/components/profile-view/user-delete.jsx",
+                lineNumber: 29,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                onClick: handleDelete,
+                children: "Delete Account"
+            }, void 0, false, {
+                fileName: "src/components/profile-view/user-delete.jsx",
+                lineNumber: 30,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/profile-view/user-delete.jsx",
+        lineNumber: 27,
+        columnNumber: 9
+    }, undefined);
 };
 _s(UserDelete, "F4sIt7mKJYcEEXfSmiQshC30dV8=");
 _c = UserDelete;
@@ -42447,7 +42481,7 @@ $RefreshReg$(_c, "UserDelete");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"5DNnr","react":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"cqcoX"}],"bsPVM":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"5DNnr","react":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"cqcoX","react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A"}],"bsPVM":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$abf5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

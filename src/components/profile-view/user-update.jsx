@@ -55,7 +55,6 @@ export const UserUpdate = () => {
               <Form.Control
                 className="form-field"
                 type="text"
-                // value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 minLength="3"
               />
@@ -66,7 +65,6 @@ export const UserUpdate = () => {
             <Form.Control
               className="form-field"
               type="password"
-              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
         </Form.Group>
@@ -76,7 +74,6 @@ export const UserUpdate = () => {
             <Form.Control
               className="form-field"
               type="email"
-              value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
         </Form.Group>
@@ -86,7 +83,6 @@ export const UserUpdate = () => {
             <Form.Control
               className="form-field"
               type="date"
-              value={birthday}
               onChange={(e) => setBirthday(e.target.value)}
             />
         </Form.Group>
