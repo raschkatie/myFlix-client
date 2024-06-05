@@ -1,12 +1,12 @@
-
+import { useState } from "react";
 
 export const UserDelete = () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    const token = JSON.parse(localStorage.getItem("token"));
+    const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
 
     fetch(`https://kr-my-flix.onrender.com/users/${user.username}`, {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${token}`,
+        headers: { Authorization: `Bearer ${storedToken}`,
         "Content-Type": "application/json"
         }
     })

@@ -42405,16 +42405,25 @@ $RefreshReg$(_c, "UserUpdate");
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"5DNnr","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"cqcoX"}],"j19ow":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$09d0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$09d0.prelude(module);
+
+try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "UserDelete", ()=>UserDelete);
+var _react = require("react");
+var _s = $RefreshSig$();
 const UserDelete = ()=>{
+    _s();
     const user = JSON.parse(localStorage.getItem("user"));
-    const token = JSON.parse(localStorage.getItem("token"));
+    const [storedToken, setStoredToken] = (0, _react.useState)(localStorage.getItem("token"));
     fetch(`https://kr-my-flix.onrender.com/users/${user.username}`, {
         method: "DELETE",
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${storedToken}`,
             "Content-Type": "application/json"
         }
     }).then((response)=>{
@@ -42424,11 +42433,17 @@ const UserDelete = ()=>{
         } else alert("Uh oh! There was an issue.");
     });
 };
+_s(UserDelete, "F4sIt7mKJYcEEXfSmiQshC30dV8=");
 _c = UserDelete;
 var _c;
 $RefreshReg$(_c, "UserDelete");
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"5DNnr"}],"bsPVM":[function(require,module,exports) {
+  $parcel$ReactRefreshHelpers$09d0.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"5DNnr","react":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"cqcoX"}],"bsPVM":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$abf5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
