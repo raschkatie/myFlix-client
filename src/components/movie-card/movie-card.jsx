@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import "../../index.scss";
+import "./movie-card.scss";
 
 export const MovieCard = ({ movie, isFavorite }) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -92,6 +92,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
             <Link to={`/movies/${movie.id}`}>
                 <Card className="movie-card">
                     <Card.Img variant="top" src={movie.image} />
+                    <h4 className="hide-description">See Details</h4>
                     <Card.Body>
                         <Card.Title>{movie.title}</Card.Title>
                     </Card.Body>
