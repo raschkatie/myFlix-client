@@ -13190,8 +13190,10 @@ textarea.form-control-lg {
   }
 }
 
-body {
+body, span, p {
+  color: var(--body-color);
   margin-top: 20px;
+  margin-bottom: 30px;
   font-family: Libre Baskerville, serif;
   font-size: 16px;
   font-weight: 400;
@@ -13199,19 +13201,62 @@ body {
 
 .form-field {
   border-color: #8b4513;
+  margin-bottom: 20px;
 }
 
 a:link {
+  margin-bottom: 20px;
   text-decoration: none;
 }
 
 a:hover {
-  opacity: .8;
-  background-color: #faebd7;
+  opacity: .4;
+}
+
+.section {
+  color: var(--body-color);
+  margin: 20px 0;
+}
+
+.warning {
+  color: red;
+}
+
+.delete-button {
+  color: #fff;
+  background-color: #8b0000;
+}
+
+.movie-card {
+  text-align: center;
+  height: 92%;
+}
+
+.hide-description {
+  visibility: hidden;
+  text-align: center;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  position: absolute;
+}
+
+.movie-card:hover .hide-description {
+  visibility: visible;
+}
+
+.movie-item {
+  text-align: left;
+  margin: 10px 0;
 }
 
 .movie-image {
   width: 50%;
+  margin: 0 auto;
 }
 
 .bold-title {
@@ -13226,16 +13271,7 @@ a:hover {
   padding: 4px 12px;
 }
 
-.back-button:hover {
-  background-color: wheat;
-}
-
 body {
-  text-align: center;
-  margin: 0 auto;
-}
-
-a {
   color: var(--body-color);
 }
 /*# sourceMappingURL=index.2212206d.css.map */
