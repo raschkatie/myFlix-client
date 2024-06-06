@@ -3,6 +3,8 @@ import { Row, Col } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 import { Link } from "react-router-dom";
 
+import "../../index.scss";
+
 export const FavoriteMovies = ({ movies, user }) => {
     let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m.id));
     

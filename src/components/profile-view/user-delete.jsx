@@ -24,11 +24,12 @@ export const UserDelete = () => {
     };
 
     return (
-        <div>
+        <div className="section warning">
             <h4>Delete Account</h4>
             <p>Warning! This action cannot be undone.</p>
             <Button 
-                onClick={handleDelete}>
+                onClick={handleDelete}
+                className="delete-button">
                     Delete Account
             </Button>
         </div>
