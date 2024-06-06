@@ -4,6 +4,8 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import "../../index.scss";
+
 export const MovieCard = ({ movie, isFavorite }) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
@@ -27,6 +29,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
                     alert("Uh oh! Couldn't add to Favorites");
                 } else {
                 alert("Movie added to Favorites");
+                window.location.reload();
                 return response.json();
             }})
             .then((user) => {
@@ -54,6 +57,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
                     alert("Uh oh! Couldn't remove from Favorites");
                 } else {
                 alert("Movie removed from Favorites");
+                window.location.reload();
                 return response.json();
             }})
             .then((user) => {
@@ -85,12 +89,11 @@ export const MovieCard = ({ movie, isFavorite }) => {
     
     return (
         <>
-            <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-                <Card className="mh-100">
+            <Link to={`/movies/${movie.id}`}>
+                <Card className="movie-card">
                     <Card.Img variant="top" src={movie.image} />
                     <Card.Body>
                         <Card.Title>{movie.title}</Card.Title>
-                        <Card.Text>{movie.description}</Card.Text>
                     </Card.Body>
                 </Card>
             </Link>
