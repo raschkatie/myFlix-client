@@ -42640,7 +42640,7 @@ const FavoriteMovies = ({ movies, user })=>{
                             to: `/movies/${movie.id}`,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 movie: movie,
-                                isFavorite: user.favoriteMovies.includes(movie.id)
+                                isFavorite: user.FavoriteMovies.includes(movie.id)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
                                 lineNumber: 19,

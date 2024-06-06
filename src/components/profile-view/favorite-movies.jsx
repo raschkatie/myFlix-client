@@ -18,7 +18,7 @@ export const FavoriteMovies = ({ movies, user }) => {
                             <Link to={`/movies/${movie.id}`}>
                                 <MovieCard
                                     movie={movie}
-                                    isFavorite={user.favoriteMovies.includes(movie.id)}
+                                    isFavorite={user.FavoriteMovies.includes(movie.id)}
                                 />
                             </Link>
                         </Col>
