@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
+import { Link } from "react-router-dom";
 
 export const FavoriteMovies = ({ movies, user }) => {
     let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m._id));
@@ -17,7 +18,7 @@ export const FavoriteMovies = ({ movies, user }) => {
                             <Link to={`/movies/${movie.id}`}>
                                 <MovieCard
                                     movie={movie}
-                                    isFavorite={user.favoriteMovies}
+                                    isFavorite={user.favoriteMovies.includes(movie.id)}
                                 />
                             </Link>
                         </Col>

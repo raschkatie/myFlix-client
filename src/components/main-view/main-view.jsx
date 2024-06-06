@@ -112,7 +112,7 @@ export const MainView = () => {
                                             <Col className="mb-4" key={movie.id} md={3}>
                                                 <MovieCard 
                                                     movie={movie}
-                                                    isFavorite={user.favoriteMovies.includes(movie.Title)} 
+                                                    isFavorite={user.favoriteMovies.includes(movie.id)} 
                                                 />
                                             </Col>
                                         ))}
@@ -124,7 +124,12 @@ export const MainView = () => {
                     {user && (
                         <Route
                             path="/profile"
-                            element={<ProfileView movies={movies} user={user} />}
+                            element={
+                                <ProfileView 
+                                    movies={movies} 
+                                    user={user} 
+                                />
+                            }
                         />
                     )}
                 </Routes>
