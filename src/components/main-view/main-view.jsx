@@ -37,7 +37,7 @@ export const MainView = () => {
                         director: movie.Director,
                         image: movie.ImagePath
                     };
-                });
+                })
                 setMovies(moviesApi);
             });
     }, [token]);
