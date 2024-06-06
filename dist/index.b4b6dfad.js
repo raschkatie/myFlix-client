@@ -27551,7 +27551,8 @@ const MainView = ()=>{
                                             className: "mb-4",
                                             md: 3,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                                                movie: movie
+                                                movie: movie,
+                                                isFavorite: user.favoriteMovies.includes(movie.id)
                                             }, void 0, false, {
                                                 fileName: "src/components/main-view/main-view.jsx",
                                                 lineNumber: 112,
@@ -27576,12 +27577,12 @@ const MainView = ()=>{
                                 user: user
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 123,
+                                lineNumber: 126,
                                 columnNumber: 38
                             }, void 0)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 121,
+                            lineNumber: 124,
                             columnNumber: 25
                         }, undefined)
                     ]
@@ -27661,7 +27662,7 @@ const MovieCard = ({ movie, isFavorite })=>{
             });
         };
         const removeFromFavorites = ()=>{
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${encodeURIComponent(movie.Title)}`, {
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -27769,7 +27770,7 @@ const MovieCard = ({ movie, isFavorite })=>{
         ]
     }, void 0, true);
 };
-_s(MovieCard, "H0NCEbKSoQqQqFuAaYUl6C3Qamc=");
+_s(MovieCard, "nh8cWMg7vwi8GJ3Lt98J1pNKWZA=");
 _c = MovieCard;
 MovieCard.propTypes = {
     movie: (0, _propTypes.PropTypes).shape({
