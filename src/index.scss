@@ -14,3 +14,12 @@ body {
 .form-field {
     border-color: saddlebrown;
 }
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 80%;
+    background-color: $body-bg;
+}
