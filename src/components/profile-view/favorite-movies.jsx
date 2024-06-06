@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 export const FavoriteMovies = ({ movies, user }) => {
     let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m._id));
     
+    if (!movies || !user.FavoriteMovies) {
+        return <div>Looks like you don't have any favorite movies yet!</div>
+    }
+
     return (
         <Row>
             <Col md={12}>
@@ -18,7 +22,7 @@ export const FavoriteMovies = ({ movies, user }) => {
                             <Link to={`/movies/${movie.id}`}>
                                 <MovieCard
                                     movie={movie}
-                                    isFavorite={user.FavoriteMovies.includes(movie.id)}
+                                    isFavorite={user.FavoriteMovies.includes(movie._id)}
                                 />
                             </Link>
                         </Col>
