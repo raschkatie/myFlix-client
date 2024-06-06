@@ -27553,7 +27553,7 @@ const MainView = ()=>{
                                             md: 3,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                                 movie: movie,
-                                                isFavorite: user.favoriteMovies.includes(movie.Title)
+                                                isFavorite: user.favoriteMovies.includes(movie.id)
                                             }, void 0, false, {
                                                 fileName: "src/components/main-view/main-view.jsx",
                                                 lineNumber: 113,
@@ -27578,8 +27578,8 @@ const MainView = ()=>{
                                 user: user
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 127,
-                                columnNumber: 38
+                                lineNumber: 128,
+                                columnNumber: 33
                             }, void 0)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
