@@ -13201,6 +13201,15 @@ body {
   border-color: #8b4513;
 }
 
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: .8;
+  background-color: #faebd7;
+}
+
 .movie-image {
   width: 50%;
 }
@@ -13219,5 +13228,14 @@ body {
 
 .back-button:hover {
   background-color: wheat;
+}
+
+body {
+  text-align: center;
+  margin: 0 auto;
+}
+
+a {
+  color: var(--body-color);
 }
 /*# sourceMappingURL=index.2212206d.css.map */
