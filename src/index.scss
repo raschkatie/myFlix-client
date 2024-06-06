@@ -4,22 +4,39 @@ $body-color: SaddleBrown;
 
 @import '~bootstrap/scss/bootstrap.scss';
 
-body {
+body, span, p {
     margin-top: 20px;
+    margin-bottom: 30px;
     font-family: "Libre Baskerville", serif;
     font-size: 16px;
     font-weight: 400;
+    color: var(--body-color);
 }
 
 .form-field {
     border-color: saddlebrown;
+    margin-bottom: 20px;
 }
 
 a:link {
     text-decoration: none;
+    margin-bottom: 20px;
 }
 
 a:hover {
-    opacity: 80%;
-    background-color: $body-bg;
+    opacity: 40%;
+}
+
+.section {
+    margin: 20px 0 20px 0;
+    color: var(--body-color);
+}
+
+.warning {
+    color: red;
+}
+
+.delete-button {
+    background-color: darkred;
+    color: white;
 }
