@@ -16,6 +16,7 @@ export const UserDelete = () => {
             if (response.ok) {
                 alert("Account has been successfully deleted");
                 localStorage.clear();
+                <Navigate to="/login" replace />
             } else {
                 alert("Uh oh! There was an issue.");
             }
