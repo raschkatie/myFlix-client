@@ -38,7 +38,7 @@ export const MainView = () => {
                         image: movie.ImagePath
                     };
                 });
-                dispatch(setMovies(moviesApi));
+                setMovies(moviesApi);
             });
     }, [token]);
 
@@ -104,8 +104,6 @@ export const MainView = () => {
                             <>
                                 {!user ? (
                                     <Navigate to="/login" replace />
-                                ) : movies.length === 0 ? (
-                                    <Col>The list is empty!</Col>
                                 ) : (
                                     <>
                                         {movies.map((movie) => (
@@ -117,7 +115,8 @@ export const MainView = () => {
                                             </Col>
                                         ))}
                                     </>
-                                )}
+                                )
+                                }
                             </>
                         }
                     />
