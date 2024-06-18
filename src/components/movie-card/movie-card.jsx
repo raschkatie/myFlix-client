@@ -15,8 +15,8 @@ export const MovieCard = ({ movie, isFavorite }) => {
     const [removeTitle, setRemoveTitle] = useState("");
 
     useEffect(() => {
-        const addToFavorites = () => {
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`,
+        const addToFavorites = async () => {
+            await fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`,
                 {
                     method: "POST",
                     headers: {
@@ -43,8 +43,8 @@ export const MovieCard = ({ movie, isFavorite }) => {
             });
         };
 
-        const removeFromFavorites = () => {
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`,
+        const removeFromFavorites = async () => {
+            await fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`,
                 {
                     method: "DELETE",
                     headers: {
