@@ -13191,7 +13191,7 @@ textarea.form-control-lg {
 }
 
 body, span, p {
-  color: var(--body-color);
+  color: #8b4513;
   margin-top: 20px;
   margin-bottom: 30px;
   font-family: Libre Baskerville, serif;
@@ -13214,7 +13214,7 @@ a:hover {
 }
 
 .section {
-  color: var(--body-color);
+  color: #8b4513;
   margin: 20px 0;
 }
 

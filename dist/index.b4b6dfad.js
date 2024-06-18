@@ -27396,9 +27396,9 @@ const MainView = ()=>{
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     const [movies, setMovies] = (0, _react.useState)([]);
-    (0, _react.useEffect)(()=>{
+    (0, _react.useEffect)(async ()=>{
         if (!token) return;
-        fetch("https://kr-my-flix.onrender.com/movies", {
+        await fetch("https://kr-my-flix.onrender.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -27638,8 +27638,8 @@ const MovieCard = ({ movie, isFavorite })=>{
     const [addTitle, setAddTitle] = (0, _react.useState)("");
     const [removeTitle, setRemoveTitle] = (0, _react.useState)("");
     (0, _react.useEffect)(()=>{
-        const addToFavorites = ()=>{
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`, {
+        const addToFavorites = async ()=>{
+            await fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -27649,7 +27649,6 @@ const MovieCard = ({ movie, isFavorite })=>{
                 if (!response.ok) alert("Uh oh! Couldn't add to Favorites");
                 else {
                     alert("Movie added to Favorites");
-                    window.location.reload();
                     return response.json();
                 }
             }).then((user)=>{
@@ -27661,8 +27660,8 @@ const MovieCard = ({ movie, isFavorite })=>{
                 console.error(error);
             });
         };
-        const removeFromFavorites = ()=>{
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`, {
+        const removeFromFavorites = async ()=>{
+            await fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
