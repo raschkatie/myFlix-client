@@ -27538,12 +27538,6 @@ const MainView = ()=>{
                                     fileName: "src/components/main-view/main-view.jsx",
                                     lineNumber: 106,
                                     columnNumber: 37
-                                }, void 0) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                                    children: "The list is empty!"
-                                }, void 0, false, {
-                                    fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 108,
-                                    columnNumber: 37
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                     children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                             className: "mb-4",
@@ -27553,12 +27547,12 @@ const MainView = ()=>{
                                                 isFavorite: user.FavoriteMovies.includes(movie.id)
                                             }, void 0, false, {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 113,
+                                                lineNumber: 111,
                                                 columnNumber: 49
                                             }, void 0)
                                         }, movie.id, false, {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 112,
+                                            lineNumber: 110,
                                             columnNumber: 45
                                         }, void 0))
                                 }, void 0, false)
@@ -27575,12 +27569,12 @@ const MainView = ()=>{
                                 user: user
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 128,
+                                lineNumber: 127,
                                 columnNumber: 33
                             }, void 0)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 125,
+                            lineNumber: 124,
                             columnNumber: 25
                         }, undefined)
                     ]
@@ -42561,6 +42555,14 @@ const UserDelete = ()=>{
             if (response.ok) {
                 alert("Account has been successfully deleted");
                 localStorage.clear();
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Navigate, {
+                    to: "/login",
+                    replace: true
+                }, void 0, false, {
+                    fileName: "src/components/profile-view/user-delete.jsx",
+                    lineNumber: 19,
+                    columnNumber: 17
+                }, undefined);
             } else alert("Uh oh! There was an issue.");
         });
     };
@@ -42571,14 +42573,14 @@ const UserDelete = ()=>{
                 children: "Delete Account"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-delete.jsx",
-                lineNumber: 28,
+                lineNumber: 29,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Warning! This action cannot be undone."
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-delete.jsx",
-                lineNumber: 29,
+                lineNumber: 30,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -42587,13 +42589,13 @@ const UserDelete = ()=>{
                 children: "Delete Account"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-delete.jsx",
-                lineNumber: 30,
+                lineNumber: 31,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/user-delete.jsx",
-        lineNumber: 27,
+        lineNumber: 28,
         columnNumber: 9
     }, undefined);
 };
