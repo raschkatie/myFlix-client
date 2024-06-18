@@ -104,6 +104,8 @@ export const MainView = () => {
                             <>
                                 {!user ? (
                                     <Navigate to="/login" replace />
+                                ) : movies.length === 0 ? (
+                                    <Col>The list is empty!</Col>
                                 ) : (
                                     <>
                                         {movies.map((movie) => (
@@ -115,8 +117,7 @@ export const MainView = () => {
                                             </Col>
                                         ))}
                                     </>
-                                )
-                                }
+                                )}
                             </>
                         }
                     />
