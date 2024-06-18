@@ -29,7 +29,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
                     alert("Uh oh! Couldn't add to Favorites");
                 } else {
                 alert("Movie added to Favorites");
-                window.location.reload();
+
                 return response.json();
             }})
             .then((user) => {
