@@ -10,7 +10,7 @@ body, span, p {
     font-family: "Libre Baskerville", serif;
     font-size: 16px;
     font-weight: 400;
-    color: var(--body-color);
+    color: $body-color;
 }
 
 .form-field {
@@ -29,7 +29,7 @@ a:hover {
 
 .section {
     margin: 20px 0 20px 0;
-    color: var(--body-color);
+    color: $body-color;
 }
 
 .warning {
