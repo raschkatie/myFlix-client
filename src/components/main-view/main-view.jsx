@@ -18,12 +18,12 @@ export const MainView = () => {
     const [token, setToken] = useState(storedToken? storedToken : null);
     const [movies, setMovies] = useState([]);
 
-    useEffect(() => {
+    useEffect(async () => {
         if (!token) {
             return;
         }
 
-        fetch("https://kr-my-flix.onrender.com/movies", {
+        await fetch("https://kr-my-flix.onrender.com/movies", {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then((response) => response.json())
@@ -37,8 +37,8 @@ export const MainView = () => {
                         director: movie.Director,
                         image: movie.ImagePath
                     };
-                })
-                setMovies(moviesApi);
+                });
+                dispatch(setMovies(moviesApi));
             });
     }, [token]);
 
