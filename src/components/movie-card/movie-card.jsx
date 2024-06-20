@@ -13,10 +13,11 @@ export const MovieCard = ({ movie, isFavorite }) => {
     const [token, setToken] = useState(storedToken ? storedToken : null);
     const [addTitle, setAddTitle] = useState("");
     const [removeTitle, setRemoveTitle] = useState("");
+    const [buttonText, setButtonText] = useState(isFavorite ? "Remove from Favorites" : "Add to Favorites");
 
     useEffect(() => {
-        const addToFavorites = async () => {
-            await fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`,
+        const addToFavorites = () => {
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`,
                 {
                     method: "POST",
                     headers: {
@@ -28,9 +29,9 @@ export const MovieCard = ({ movie, isFavorite }) => {
                 if (!response.ok) {
                     alert("Uh oh! Couldn't add to Favorites");
                 } else {
-                alert("Movie added to Favorites");
-
-                return response.json();
+                    alert("Movie added to Favorites");
+                    setButtonText("Remove from Favorites");
+                    return response.json();
             }})
             .then((user) => {
                 if (user) {
@@ -43,8 +44,8 @@ export const MovieCard = ({ movie, isFavorite }) => {
             });
         };
 
-        const removeFromFavorites = async () => {
-            await fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`,
+        const removeFromFavorites = () => {
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -56,9 +57,9 @@ export const MovieCard = ({ movie, isFavorite }) => {
                 if (!response.ok) {
                     alert("Uh oh! Couldn't remove from Favorites");
                 } else {
-                alert("Movie removed from Favorites");
-                window.location.reload();
-                return response.json();
+                    setButtonText("Add to Favorites");
+                    alert("Movie removed from Favorites");
+                    return response.json();
             }})
             .then((user) => {
                 if (user) {
@@ -104,14 +105,14 @@ export const MovieCard = ({ movie, isFavorite }) => {
                         variant="primary"
                         onClick={handleRemoveFromFavorites}
                     >
-                        Remove from Favorites
+                        {buttonText}
                     </Button>
                 ) : (
                     <Button
                         variant="primary"
                         onClick={handleAddToFavorites}
                     >
-                        Add to Favorites
+                        {buttonText}
                     </Button>
                 )}
             </Card>
