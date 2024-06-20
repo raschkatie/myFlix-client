@@ -19,34 +19,38 @@ export const UserUpdate = () => {
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault(event);
 
-        fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
-            method: "PUT",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`
-            }
-        })
-        .then((response) => {
-            if (response.ok) {
-                alert("Account Successfully Updated!");
+        useEffect(() => {
+          fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
+              method: "PUT",
+              body: JSON.stringify(data),
+              headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`
+              }
+          })
+          .then((response) => {
+              if (response.ok) {
+                  alert("Account Successfully Updated!");
 
-                return response.json();
-            } else {
-                alert("Update Failed");
-            }
-        })
-        .then((user) => {
-            if (user) {
-                localStorage.setItem("user", JSON.stringify(user));
-                setUser(user);
-            }
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+                  return response.json();
+              } else {
+                  alert("Update Failed");
+              }
+          })
+          .then((user) => {
+              if (user) {
+                  localStorage.setItem("user", JSON.stringify(user));
+                  setUser(user);
+                  setPassword(password);
+                  setEmail(email);
+                  setBirthday(birthday);
+              }
+          })
+          .catch((error) => {
+              console.error(error);
+          });
+        }, []);
     };
 
     return (
