@@ -14,8 +14,8 @@ import "../../index.scss";
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
-    const [user, setUser] = useState(storedUser? storedUser : null);
-    const [token, setToken] = useState(storedToken? storedToken : null);
+    const [user, setUser] = useState(storedUser ? storedUser : null);
+    const [token, setToken] = useState(storedToken ? storedToken : null);
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -23,23 +23,26 @@ export const MainView = () => {
             return;
         }
 
-            fetch("https://kr-my-flix.onrender.com/movies", {
-                headers: { Authorization: `Bearer ${token}` }
-            })
-                .then((response) => response.json())
-                .then((movies) => {
-                    const moviesApi = movies.map((movie) => {
-                        return {
-                            id: movie._id,
-                            title: movie.Title,
-                            description: movie.Description,
-                            genre: movie.Genre,
-                            director: movie.Director,
-                            image: movie.ImagePath
-                        };
-                    });
-                    setMovies(moviesApi);
+        fetch("https://kr-my-flix.onrender.com/movies", {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+            .then((response) => response.json())
+            .then((movies) => {
+                const moviesApi = movies.map((movie) => {
+                    return {
+                        id: movie._id,
+                        title: movie.Title,
+                        description: movie.Description,
+                        genre: movie.Genre,
+                        director: movie.Director,
+                        image: movie.ImagePath
+                    };
                 });
+                if (moviesApi.length === 0) {
+                    return <Col>The list is empty!</Col>
+                }
+                setMovies(moviesApi);
+            });
     }, [token]);
 
     return (
@@ -88,8 +91,6 @@ export const MainView = () => {
                             <>
                                 {!user ? (
                                     <Navigate to="/login" replace />
-                                ) : movies.length === 0 ? (
-                                    <Col>The list is empty!</Col>
                                 ) : (
                                     <Col md={8}>
                                         <MovieView movies={movies} />
@@ -104,8 +105,6 @@ export const MainView = () => {
                             <>
                                 {!user ? (
                                     <Navigate to="/login" replace />
-                                ) : movies.length === 0 ? (
-                                    <Col>The list is empty!</Col>
                                 ) : (
                                     <>
                                         {movies.map((movie) => (
