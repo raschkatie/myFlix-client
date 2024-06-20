@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const UserDelete = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
+
 
     const handleDelete = () => {
         fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
@@ -16,7 +18,6 @@ export const UserDelete = () => {
             if (response.ok) {
                 alert("Account has been successfully deleted");
                 localStorage.clear();
-                <Navigate to="/login" replace />
             } else {
                 alert("Uh oh! There was an issue.");
             }
@@ -24,15 +25,19 @@ export const UserDelete = () => {
 
     };
 
+
     return (
         <div className="section warning">
             <h4>Delete Account</h4>
             <p>Warning! This action cannot be undone.</p>
-            <Button 
-                onClick={handleDelete}
-                className="delete-button">
-                    Delete Account
-            </Button>
+            <Link to="/login" replace >
+                <Button 
+                    onClick={handleDelete}
+                    className="delete-button"
+                    >
+                        Delete Account
+                </Button>
+            </Link>
         </div>
     );
 };
