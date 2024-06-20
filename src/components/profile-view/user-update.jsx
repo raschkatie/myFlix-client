@@ -42,15 +42,12 @@ export const UserUpdate = () => {
               if (user) {
                   localStorage.setItem("user", JSON.stringify(user));
                   setUser(user);
-                  setPassword(password);
-                  setEmail(email);
-                  setBirthday(birthday);
               }
           })
           .catch((error) => {
               console.error(error);
           });
-        }, []);
+        }, [user]);
     };
 
     return (
