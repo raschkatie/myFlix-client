@@ -16,30 +16,30 @@ export const MainView = () => {
     const storedToken = localStorage.getItem("token");
     const [user, setUser] = useState(storedUser? storedUser : null);
     const [token, setToken] = useState(storedToken? storedToken : null);
-    const [movies, setMovies] = useState([]);
+    const [movies, setMovies] = useState(null);
 
-    useEffect(async () => {
+    useEffect(() => {
         if (!token) {
             return;
         }
 
-        await fetch("https://kr-my-flix.onrender.com/movies", {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-            .then((response) => response.json())
-            .then((movies) => {
-                const moviesApi = movies.map((movie) => {
-                    return {
-                        id: movie._id,
-                        title: movie.Title,
-                        description: movie.Description,
-                        genre: movie.Genre,
-                        director: movie.Director,
-                        image: movie.ImagePath
-                    };
+            fetch("https://kr-my-flix.onrender.com/movies", {
+                headers: { Authorization: `Bearer ${token}` }
+            })
+                .then((response) => response.json())
+                .then((movies) => {
+                    const moviesApi = movies.map((movie) => {
+                        return {
+                            id: movie._id,
+                            title: movie.Title,
+                            description: movie.Description,
+                            genre: movie.Genre,
+                            director: movie.Director,
+                            image: movie.ImagePath
+                        };
+                    });
+                    setMovies(moviesApi);
                 });
-                setMovies(moviesApi);
-            });
     }, [token]);
 
     return (
