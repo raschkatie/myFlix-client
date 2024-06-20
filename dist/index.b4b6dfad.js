@@ -27637,9 +27637,10 @@ const MovieCard = ({ movie, isFavorite })=>{
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     const [addTitle, setAddTitle] = (0, _react.useState)("");
     const [removeTitle, setRemoveTitle] = (0, _react.useState)("");
+    const [buttonText, setButtonText] = (0, _react.useState)(isFavorite ? "Remove from Favorites" : "Add to Favorites");
     (0, _react.useEffect)(()=>{
-        const addToFavorites = async ()=>{
-            await fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`, {
+        const addToFavorites = ()=>{
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -27649,6 +27650,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                 if (!response.ok) alert("Uh oh! Couldn't add to Favorites");
                 else {
                     alert("Movie added to Favorites");
+                    setButtonText("Remove from Favorites");
                     return response.json();
                 }
             }).then((user)=>{
@@ -27660,8 +27662,8 @@ const MovieCard = ({ movie, isFavorite })=>{
                 console.error(error);
             });
         };
-        const removeFromFavorites = async ()=>{
-            await fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`, {
+        const removeFromFavorites = ()=>{
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(user.Username)}/favorites/${movie.id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -27670,8 +27672,8 @@ const MovieCard = ({ movie, isFavorite })=>{
             }).then((response)=>{
                 if (!response.ok) alert("Uh oh! Couldn't remove from Favorites");
                 else {
+                    setButtonText("Add to Favorites");
                     alert("Movie removed from Favorites");
-                    window.location.reload();
                     return response.json();
                 }
             }).then((user)=>{
@@ -27708,7 +27710,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                             src: movie.image
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 94,
+                            lineNumber: 95,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
@@ -27716,7 +27718,7 @@ const MovieCard = ({ movie, isFavorite })=>{
                             children: "See Details"
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 95,
+                            lineNumber: 96,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
@@ -27724,52 +27726,52 @@ const MovieCard = ({ movie, isFavorite })=>{
                                 children: movie.title
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 97,
+                                lineNumber: 98,
                                 columnNumber: 25
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 96,
+                            lineNumber: 97,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 93,
+                    lineNumber: 94,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 92,
+                lineNumber: 93,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
                 children: isFavorite ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                     variant: "primary",
                     onClick: handleRemoveFromFavorites,
-                    children: "Remove from Favorites"
+                    children: buttonText
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 103,
+                    lineNumber: 104,
                     columnNumber: 21
                 }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                     variant: "primary",
                     onClick: handleAddToFavorites,
-                    children: "Add to Favorites"
+                    children: buttonText
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 110,
+                    lineNumber: 111,
                     columnNumber: 21
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 101,
+                lineNumber: 102,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(MovieCard, "nh8cWMg7vwi8GJ3Lt98J1pNKWZA=");
+_s(MovieCard, "IWYOLpWna42jDfsZG6FJurV9v4Q=");
 _c = MovieCard;
 MovieCard.propTypes = {
     movie: (0, _propTypes.PropTypes).shape({
@@ -42153,12 +42155,12 @@ const ProfileView = ({ user, movies })=>{
                     birthday: user.Birthday
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 17,
+                    lineNumber: 18,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 16,
+                lineNumber: 17,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -42168,12 +42170,12 @@ const ProfileView = ({ user, movies })=>{
                     user: user
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 25,
+                    lineNumber: 26,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 24,
+                lineNumber: 25,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -42183,30 +42185,30 @@ const ProfileView = ({ user, movies })=>{
                         children: "Fill out the form below to update your account information."
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 28,
+                        lineNumber: 29,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userUpdate.UserUpdate), {}, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 29,
+                        lineNumber: 30,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 27,
+                lineNumber: 28,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "section",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userDelete.UserDelete), {}, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 32,
+                    lineNumber: 33,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 31,
+                lineNumber: 32,
                 columnNumber: 13
             }, undefined)
         ]
@@ -42358,6 +42360,7 @@ var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
 const UserUpdate = ()=>{
     _s();
+    var _s1 = $RefreshSig$();
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const [username, setUsername] = (0, _react.useState)(storedUser.Username);
     const [password, setPassword] = (0, _react.useState)(storedUser.Password);
@@ -42372,28 +42375,34 @@ const UserUpdate = ()=>{
         Birthday: birthday
     };
     const handleSubmit = (event)=>{
-        event.preventDefault(event);
-        fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
-            method: "PUT",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
-            if (response.ok) {
-                alert("Account Successfully Updated!");
-                return response.json();
-            } else alert("Update Failed");
-        }).then((user)=>{
-            if (user) {
-                localStorage.setItem("user", JSON.stringify(user));
-                setUser(user);
-            }
-        }).catch((error)=>{
-            console.error(error);
-        });
+        _s1();
+        (0, _react.useEffect)(()=>{
+            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
+                method: "PUT",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                }
+            }).then((response)=>{
+                if (response.ok) {
+                    alert("Account Successfully Updated!");
+                    return response.json();
+                } else alert("Update Failed");
+            }).then((user)=>{
+                if (user) {
+                    localStorage.setItem("user", JSON.stringify(user));
+                    setUser(user);
+                    setPassword(password);
+                    setEmail(email);
+                    setBirthday(birthday);
+                }
+            }).catch((error)=>{
+                console.error(error);
+            });
+        }, []);
     };
+    _s1(handleSubmit, "OD7bBpZva5O2jO+Puf00hKivP7c=");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
         onSubmit: handleSubmit,
         children: [
@@ -42404,7 +42413,7 @@ const UserUpdate = ()=>{
                         children: "New Username:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 55,
+                        lineNumber: 59,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -42416,13 +42425,13 @@ const UserUpdate = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 56,
+                        lineNumber: 60,
                         columnNumber: 15
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 54,
+                lineNumber: 58,
                 columnNumber: 11
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -42432,7 +42441,7 @@ const UserUpdate = ()=>{
                         children: "New Password:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 67,
+                        lineNumber: 71,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -42443,13 +42452,13 @@ const UserUpdate = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 68,
+                        lineNumber: 72,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 66,
+                lineNumber: 70,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -42459,7 +42468,7 @@ const UserUpdate = ()=>{
                         children: "New Email:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 78,
+                        lineNumber: 82,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -42470,13 +42479,13 @@ const UserUpdate = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 79,
+                        lineNumber: 83,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 77,
+                lineNumber: 81,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -42486,7 +42495,7 @@ const UserUpdate = ()=>{
                         children: "New Birthday:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 89,
+                        lineNumber: 93,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -42497,13 +42506,13 @@ const UserUpdate = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 90,
+                        lineNumber: 94,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 88,
+                lineNumber: 92,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -42512,13 +42521,13 @@ const UserUpdate = ()=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 99,
+                lineNumber: 103,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/user-update.jsx",
-        lineNumber: 53,
+        lineNumber: 57,
         columnNumber: 9
     }, undefined);
 };
@@ -42545,6 +42554,7 @@ parcelHelpers.export(exports, "UserDelete", ()=>UserDelete);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactBootstrap = require("react-bootstrap");
+var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 const UserDelete = ()=>{
     _s();
@@ -42561,14 +42571,6 @@ const UserDelete = ()=>{
             if (response.ok) {
                 alert("Account has been successfully deleted");
                 localStorage.clear();
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Navigate, {
-                    to: "/login",
-                    replace: true
-                }, void 0, false, {
-                    fileName: "src/components/profile-view/user-delete.jsx",
-                    lineNumber: 19,
-                    columnNumber: 17
-                }, undefined);
             } else alert("Uh oh! There was an issue.");
         });
     };
@@ -42579,29 +42581,37 @@ const UserDelete = ()=>{
                 children: "Delete Account"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-delete.jsx",
-                lineNumber: 29,
+                lineNumber: 31,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Warning! This action cannot be undone."
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-delete.jsx",
-                lineNumber: 30,
+                lineNumber: 32,
                 columnNumber: 13
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                onClick: handleDelete,
-                className: "delete-button",
-                children: "Delete Account"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                to: "/login",
+                replace: true,
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                    onClick: handleDelete,
+                    className: "delete-button",
+                    children: "Delete Account"
+                }, void 0, false, {
+                    fileName: "src/components/profile-view/user-delete.jsx",
+                    lineNumber: 34,
+                    columnNumber: 17
+                }, undefined)
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-delete.jsx",
-                lineNumber: 31,
+                lineNumber: 33,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/user-delete.jsx",
-        lineNumber: 28,
+        lineNumber: 30,
         columnNumber: 9
     }, undefined);
 };
@@ -42615,7 +42625,7 @@ $RefreshReg$(_c, "UserDelete");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"5DNnr","react":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"cqcoX","react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A"}],"dTTQH":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"5DNnr","react":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"cqcoX","react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","react-router-dom":"9xmpe"}],"dTTQH":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8767 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
