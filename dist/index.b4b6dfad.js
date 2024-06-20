@@ -27396,9 +27396,9 @@ const MainView = ()=>{
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     const [movies, setMovies] = (0, _react.useState)([]);
-    (0, _react.useEffect)(async ()=>{
+    (0, _react.useEffect)(()=>{
         if (!token) return;
-        await fetch("https://kr-my-flix.onrender.com/movies", {
+        fetch("https://kr-my-flix.onrender.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -27538,6 +27538,12 @@ const MainView = ()=>{
                                     fileName: "src/components/main-view/main-view.jsx",
                                     lineNumber: 106,
                                     columnNumber: 37
+                                }, void 0) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                    children: "The list is empty!"
+                                }, void 0, false, {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 108,
+                                    columnNumber: 37
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                     children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                             className: "mb-4",
@@ -27547,12 +27553,12 @@ const MainView = ()=>{
                                                 isFavorite: user.FavoriteMovies.includes(movie.id)
                                             }, void 0, false, {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 111,
+                                                lineNumber: 113,
                                                 columnNumber: 49
                                             }, void 0)
                                         }, movie.id, false, {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 110,
+                                            lineNumber: 112,
                                             columnNumber: 45
                                         }, void 0))
                                 }, void 0, false)
@@ -27569,12 +27575,12 @@ const MainView = ()=>{
                                 user: user
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 127,
+                                lineNumber: 128,
                                 columnNumber: 33
                             }, void 0)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 124,
+                            lineNumber: 125,
                             columnNumber: 25
                         }, undefined)
                     ]
