@@ -1,5 +1,11 @@
+.movie-item {
+    margin: 10px 0 10px 0;
+    text-align: left;
+}
+
 .movie-image {
     width: 50%;
+    margin: 0 auto;
 }
 
 .bold-title {
@@ -14,6 +20,3 @@
     border: none;
 }
 
-.back-button:hover {
-    background-color: Wheat;
-}
