@@ -42550,10 +42550,12 @@ var _react = require("react");
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
-const UserDelete = ()=>{
+const UserDelete = (onLoggedOut)=>{
     _s();
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const [storedToken, setStoredToken] = (0, _react.useState)(localStorage.getItem("token"));
+    const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
+    const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     const handleDelete = ()=>{
         fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
             method: "DELETE",
@@ -42564,6 +42566,8 @@ const UserDelete = ()=>{
         }).then((response)=>{
             if (response.ok) {
                 alert("Account has been successfully deleted");
+                setUser(null);
+                setToken(null);
                 localStorage.clear();
             } else alert("Uh oh! There was an issue.");
         });
@@ -42575,41 +42579,40 @@ const UserDelete = ()=>{
                 children: "Delete Account"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-delete.jsx",
-                lineNumber: 31,
+                lineNumber: 35,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: "Warning! This action cannot be undone."
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-delete.jsx",
-                lineNumber: 32,
+                lineNumber: 36,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                 to: "/login",
-                replace: true,
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                     onClick: handleDelete,
                     className: "delete-button",
                     children: "Delete Account"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/user-delete.jsx",
-                    lineNumber: 34,
+                    lineNumber: 38,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-delete.jsx",
-                lineNumber: 33,
+                lineNumber: 37,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/user-delete.jsx",
-        lineNumber: 30,
+        lineNumber: 34,
         columnNumber: 9
     }, undefined);
 };
-_s(UserDelete, "F4sIt7mKJYcEEXfSmiQshC30dV8=");
+_s(UserDelete, "WZyqePY3xgaEDfFWghVfSIRyyr8=");
 _c = UserDelete;
 var _c;
 $RefreshReg$(_c, "UserDelete");

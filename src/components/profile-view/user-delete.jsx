@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const UserDelete = (onLoggedOut) => {
+export const UserDelete = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
+    const [storedToken] = useState(localStorage.getItem("token"));
+    const [setToken] = useState(storedToken ? storedToken : null);
 
 
     const handleDelete = () => {
@@ -17,8 +18,8 @@ export const UserDelete = (onLoggedOut) => {
         .then((response) => {
             if (response.ok) {
                 alert("Account has been successfully deleted");
+                setToken(null);
                 localStorage.clear();
-                onLoggedOut();
             } else {
                 alert("Uh oh! There was an issue.");
             }
