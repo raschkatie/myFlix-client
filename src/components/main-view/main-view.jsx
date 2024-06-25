@@ -23,9 +23,10 @@ export const MainView = () => {
         setSearchQuery(event.target.value);
     }
 
-    const filteredMovies = movies.filter((movie) => 
-        movie.Title.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const filteredMovies = movies.filter((movie) =>  {
+        const newInput = searchQuery.toLowerCase();
+        movie.Title.toLowerCase().includes(newInput);
+    });
 
     useEffect(() => {
         if (!token) {
