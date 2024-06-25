@@ -20,7 +20,8 @@ export const MainView = () => {
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleSearch = (event) => {
-        setSearchQuery(event.target.value);
+        const lowerCase = event.target.value.toLowerCase();
+        setSearchQuery(lowerCase);
     }
 
     const filteredMovies = movies.filter((movie) =>  {
@@ -124,7 +125,6 @@ export const MainView = () => {
                                                 <FormControl
                                                     type="search"
                                                     placeholder="Search"
-                                                    className="mr-sm-2"
                                                     onChange={handleSearch}
                                                     value={searchQuery}
                                                 />
