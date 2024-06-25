@@ -24,10 +24,7 @@ export const MainView = () => {
     }
 
     const filteredMovies = movies.filter((movie) => 
-        movie.Title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        movie.Description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        movie.Genre.Name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        movie.Director.Name.toLowerCase().includes(searchQuery.toLowerCase())
+        movie.Title.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     useEffect(() => {
