@@ -6,7 +6,7 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, FormControl } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import "../../index.scss";
@@ -17,6 +17,18 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
     const [movies, setMovies] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleSearch = (event) => {
+        setSearchQuery(event.target.value);
+    }
+
+    const filteredMovies = movies.filter((movie) => 
+        movie.Title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        movie.Description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        movie.Genre.Name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        movie.Director.Name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     useEffect(() => {
         if (!token) {
@@ -105,8 +117,43 @@ export const MainView = () => {
                             <>
                                 {!user ? (
                                     <Navigate to="/login" replace />
+                                ) : movies.length === 0 ? (
+                                    <div>No movies in list!</div>
+                                ) : searchQuery && filteredMovies.length > 0 ? (
+                                    <>
+                                        <Col>
+                                            <Form>
+                                                <FormControl
+                                                    type="search"
+                                                    placeholder="Search"
+                                                    className="mr-sm-2"
+                                                    onChange={handleSearch}
+                                                    value={searchQuery}
+                                                />
+                                            </Form>
+                                        </Col>
+                                        {filteredMovies.map((movie) => (
+                                            <Col className="mb-4" key={movie.id} md={3}>
+                                                <MovieCard
+                                                    movie={movie}
+                                                    isFavorite={user.FavoriteMovies.includes(movie.id)} 
+                                                />
+                                            </Col>
+                                        ))}
+                                    </>
                                 ) : (
                                     <>
+                                        <Col xs={11} md={6} className="pt-5">
+                                            <Form>
+                                                <Form.Control
+                                                    type="search"
+                                                    placeholder="Search"
+                                                    className="mr-sm-2"
+                                                    onChange={handleSearch}
+                                                    value={searchQuery}
+                                                />
+                                            </Form>
+                                        </Col>
                                         {movies.map((movie) => (
                                             <Col className="mb-4" key={movie.id} md={3}>
                                                 <MovieCard 
