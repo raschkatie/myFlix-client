@@ -17,17 +17,6 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
     const [movies, setMovies] = useState([]);
-    const [searchQuery, setSearchQuery] = useState('');
-
-    const handleSearch = (event) => {
-        const lowerCase = event.target.value.toLowerCase();
-        setSearchQuery(lowerCase);
-    }
-
-    const filteredMovies = movies.filter((movie) =>  {
-        const newInput = searchQuery.toLowerCase();
-        movie.Title.toLowerCase().includes(newInput);
-    });
 
     useEffect(() => {
         if (!token) {
@@ -118,40 +107,8 @@ export const MainView = () => {
                                     <Navigate to="/login" replace />
                                 ) : movies.length === 0 ? (
                                     <div>No movies in list!</div>
-                                ) : searchQuery && filteredMovies.length > 0 ? (
-                                    <>
-                                        <Col>
-                                            <Form>
-                                                <FormControl
-                                                    type="search"
-                                                    placeholder="Search"
-                                                    onChange={handleSearch}
-                                                    value={searchQuery}
-                                                />
-                                            </Form>
-                                        </Col>
-                                        {filteredMovies.map((movie) => (
-                                            <Col className="mb-4" key={movie.id} md={3}>
-                                                <MovieCard
-                                                    movie={movie}
-                                                    isFavorite={user.FavoriteMovies.includes(movie.id)} 
-                                                />
-                                            </Col>
-                                        ))}
-                                    </>
                                 ) : (
                                     <>
-                                        <Col xs={11} md={6} className="pt-5">
-                                            <Form>
-                                                <Form.Control
-                                                    type="search"
-                                                    placeholder="Search"
-                                                    className="mr-sm-2"
-                                                    onChange={handleSearch}
-                                                    value={searchQuery}
-                                                />
-                                            </Form>
-                                        </Col>
                                         {movies.map((movie) => (
                                             <Col className="mb-4" key={movie.id} md={3}>
                                                 <MovieCard 
