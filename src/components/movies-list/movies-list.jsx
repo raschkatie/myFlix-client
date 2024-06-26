@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { MovieCard } from "../movie-card/movie-card";
 import { MoviesFilter } from "../movies-filter/movies-filter";
 import Col from "react-bootstrap/Col";
-import { Row } from "react-bootstrap/Row";
+import Row from "react-bootstrap/Row";
 
 export const MoviesList = () => {
     const movies = useSelector((state) => state.movies.list);
