@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
@@ -10,14 +9,14 @@ import { Row, Col } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setMovies } from "../../redux/reducers/movies";
+import { MoviesList } from "../movies-list/movies-list";
 
 import "../../index.scss";
 
 export const MainView = () => {
-    const storedToken = localStorage.getItem("token");
-    const user = useSelector((state) => state.user);
-    const [token, setToken] = useState(storedToken ? storedToken : null);
-    const movies = useSelector((state) => state.movies);
+    const user = useSelector((state) => state.user.users);
+    const token = useSelector((state) => state.user.token);
+    const movies = useSelector((state) => state.movies.list);
 
     const dispatch = useDispatch();
 
@@ -109,18 +108,8 @@ export const MainView = () => {
                             <>
                                 {!user ? (
                                     <Navigate to="/login" replace />
-                                ) : (
-                                    <>
-                                        {movies.map((movie) => (
-                                            <Col className="mb-4" key={movie.id} md={3}>
-                                                <MovieCard 
-                                                    movie={movie}
-                                                    isFavorite={user.FavoriteMovies.includes(movie.id)} 
-                                                />
-                                            </Col>
-                                        ))}
-                                    </>
-                                )}
+                                ) : <MoviesList />
+                                }
                             </>
                         }
                     />
