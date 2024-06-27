@@ -19,7 +19,7 @@ export const LoginView = () => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
+                "Access-Control-Allow-Origin": "https://myflix-kr.netlify.app/login"
             },
             body: JSON.stringify(data)
         })
