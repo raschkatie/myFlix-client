@@ -18,8 +18,7 @@ export const LoginView = () => {
         fetch("https://kr-my-flix.onrender.com/login", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "https://kr-my-flix.onrender.com/login"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
         })
