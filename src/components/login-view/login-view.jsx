@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 
 import '../../index.scss';
 
-export const LoginView = ({ onLoggedIn }) => {
+export const LoginView = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     
@@ -18,7 +18,8 @@ export const LoginView = ({ onLoggedIn }) => {
         fetch("https://kr-my-flix.onrender.com/login", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
             },
             body: JSON.stringify(data)
         })
@@ -28,7 +29,7 @@ export const LoginView = ({ onLoggedIn }) => {
             if (data.user) {
                 localStorage.setItem("user", JSON.stringify(data.user));
                 localStorage.setItem("token", data.token);
-                onLoggedIn(data.user, data.token);
+                dispatchEvent(setUser(data.user, data.token));
             } else {
                 alert("User Not Found");
             }
