@@ -3,17 +3,18 @@ import { PropTypes } from "prop-types";
 import { Card, Button } from "react-bootstrap"; 
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { setUser } from "../../redux/reducers/user/user";
 
 import "./movie-card.scss";
 
-export const MovieCard = ({ movie, isFavorite }) => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+export const MovieCard = ({ movie }) => {
+    const user = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
-    const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
     const [addTitle, setAddTitle] = useState("");
     const [removeTitle, setRemoveTitle] = useState("");
-    const [buttonText, setButtonText] = useState(isFavorite ? "Remove from Favorites" : "Add to Favorites");
+    const [buttonText, setButtonText] = useState((user.FavoriteMovies.includes(movie.id)) ? "Remove from Favorites" : "Add to Favorites");
+
 
     useEffect(() => {
         const addToFavorites = () => {
@@ -100,7 +101,7 @@ export const MovieCard = ({ movie, isFavorite }) => {
                 </Card>
             </Link>
             <Card>
-                {isFavorite ? (
+                {(user.FavoriteMovies.includes(movie.id)) ? (
                     <Button 
                         variant="primary"
                         onClick={handleRemoveFromFavorites}
