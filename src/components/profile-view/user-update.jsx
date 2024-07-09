@@ -42,7 +42,7 @@ export const UserUpdate = () => {
           })
           .then((user) => {
               if (user) {
-                  localStorage.setItem("user", JSON.stringify(user));
+                  localStorage.setItem("user", JSON.stringify(event));
                   setUser(user);
               }
           })
@@ -50,7 +50,6 @@ export const UserUpdate = () => {
               console.error(error);
           });
 
-          console.log(data);
         }, [user]);
     };
 
