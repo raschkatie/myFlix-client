@@ -15,7 +15,7 @@ export const FavoriteMovies = ({ movies, user }) => {
     const handleFavorite = (movie) => {
         if (user.FavoriteMovies.includes(movie.id)) {
             return true;
-        } else {
+        } else if (!user.FavoriteMovies.includes(movie.id)) {
             return false;
         }
     }
