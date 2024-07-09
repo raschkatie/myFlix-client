@@ -23,9 +23,11 @@ export const UserUpdate = () => {
     const handleSubmit = (event) => {
 
         useEffect(() => {
+
+          event.preventDefault();
           fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
               method: "PUT",
-              body: JSON.stringify(event),
+              body: JSON.stringify(data),
               headers: {
                   "Content-Type": "application/json",
                   Authorization: `Bearer ${token}`
@@ -42,7 +44,7 @@ export const UserUpdate = () => {
           })
           .then((user) => {
               if (user) {
-                  localStorage.setItem("user", JSON.stringify(event));
+                  localStorage.setItem("user", JSON.stringify(response.data));
                   setUser(user);
               }
           })
