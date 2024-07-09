@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { setToken } from "../../redux/reducers/user/user";
 
 export const UserDelete = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const [storedToken] = useState(localStorage.getItem("token"));
-    const [setToken] = useState(storedToken ? storedToken : null);
 
 
     const handleDelete = () => {
