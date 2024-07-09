@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
-import { Link } from "react-router-dom";
 
 import "../../index.scss";
 
@@ -10,14 +9,6 @@ export const FavoriteMovies = ({ movies, user }) => {
 
     if (!movies || !user.FavoriteMovies) {
         return <div>Looks like you don't have any favorite movies yet!</div>
-    }
-
-    const handleFavorite = (movie) => {
-        if (user.FavoriteMovies.includes(movie.id)) {
-            return true;
-        } else if (!user.FavoriteMovies.includes(movie.id)) {
-            return false;
-        }
     }
 
 
@@ -32,7 +23,6 @@ export const FavoriteMovies = ({ movies, user }) => {
                         <Col md={4} key={movie.id}>
                                 <MovieCard
                                     movie={movie}
-                                    isFavorite={handleFavorite}
                                 />
                         </Col>
                     );
