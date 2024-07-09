@@ -6,7 +6,9 @@ import { FavoriteMovies } from "./favorite-movies";
 
 import "../../index.scss";
 
-export const ProfileView = ({ user, movies }) => {    
+export const ProfileView = ({ movies }) => {    
+    const user = JSON.parse(localStorage.getItem("user"));
+    
     if (!user) {
         return;
     }

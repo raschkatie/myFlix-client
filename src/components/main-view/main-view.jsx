@@ -9,6 +9,8 @@ import { Row, Col } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setMovies } from "../../redux/reducers/movies";
+import { setUser } from "../../redux/reducers/user/user";
+import { setToken } from "../../redux/reducers/user/user";
 import { MoviesList } from "../movies-list/movies-list";
 
 import "../../index.scss";
@@ -47,9 +49,19 @@ export const MainView = () => {
             });
     }, [token]);
 
+    const handleLogout = () => {
+        setUser(null);
+        setToken(null);
+        localStorage.clear();
+    };
+
     return (
         <BrowserRouter>
-            <NavigationBar />
+            <NavigationBar 
+                onLoggedOut={() => {
+                    handleLogout();
+                }}
+            />
             <Row className="justify-content-md-center">
                 <Routes>
                     <Route
@@ -111,7 +123,6 @@ export const MainView = () => {
                             element={
                                 <ProfileView 
                                     movies={movies} 
-                                    user={user} 
                                 />
                             }
                         />

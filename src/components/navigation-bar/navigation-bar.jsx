@@ -1,13 +1,10 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { setUser } from "../../redux/reducers/user/user";
 
 import "./navigation-bar.scss";
 
-export const NavigationBar = () => {
-    const user = useSelector((state) => state.user);
-    const dispatch = useDispatch();
+export const NavigationBar = ( onLoggedOut ) => {
+    const user = JSON.parse(localStorage.getItem("user"));
 
     return (
         <Navbar expand="lg" >
@@ -36,7 +33,7 @@ export const NavigationBar = () => {
                                 <Nav.Link as={Link} to="/profile">
                                     Profile
                                 </Nav.Link>
-                                <Nav.Link onClick={() => dispatch(setUser(null))}>
+                                <Nav.Link onClick={onLoggedOut}>
                                     Logout
                                 </Nav.Link>
                             </>

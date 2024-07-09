@@ -6,7 +6,7 @@ import '../../index.scss';
 export const LoginView = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
