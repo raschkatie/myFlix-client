@@ -18,12 +18,14 @@ export const UserUpdate = () => {
         Birthday: birthday
     };
 
+    console.log(data);
+
     const handleSubmit = (event) => {
 
         useEffect(() => {
           fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
               method: "PUT",
-              body: JSON.stringify(data),
+              body: JSON.stringify(event),
               headers: {
                   "Content-Type": "application/json",
                   Authorization: `Bearer ${token}`
@@ -47,6 +49,8 @@ export const UserUpdate = () => {
           .catch((error) => {
               console.error(error);
           });
+
+          console.log(data);
         }, [user]);
     };
 
