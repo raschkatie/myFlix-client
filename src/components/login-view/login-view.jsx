@@ -1,11 +1,15 @@
 import { React, useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { setUser } from "../../redux/reducers/user/user";
+import { useDispatch } from "react-redux";
 
 import '../../index.scss';
 
 export const LoginView = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -28,13 +32,14 @@ export const LoginView = () => {
             if (data.user) {
                 localStorage.setItem("user", JSON.stringify(data.user));
                 localStorage.setItem("token", data.token);
-                dispatchEvent(setUser(data.user, data.token));
+                dispatch(setUser(data.user, data.token));
             } else {
                 alert("User Not Found");
             }
         })
         .catch((e) => {
             alert("Something went wrong");
+            console.log(e);
         })
     };
 
