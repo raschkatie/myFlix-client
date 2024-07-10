@@ -10,7 +10,7 @@ import "./movie-card.scss";
 export const MovieCard = ({ movie }) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
-    const [token, setToken] = useState(storedToken ? storedToken : null);
+    const [token] = useState(storedToken ? storedToken : null);
     const [addTitle, setAddTitle] = useState("");
     const [removeTitle, setRemoveTitle] = useState("");
     const [buttonText, setButtonText] = useState((user.FavoriteMovies.includes(movie.id)) ? "Remove from Favorites" : "Add to Favorites");
