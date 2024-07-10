@@ -22,8 +22,6 @@ export const UserUpdate = () => {
 
     const handleSubmit = (event) => {
 
-        useEffect(() => {
-
           event.preventDefault();
           fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
               method: "PUT",
@@ -52,7 +50,6 @@ export const UserUpdate = () => {
               console.error(error);
           });
 
-        }, [user]);
     };
 
     return (

@@ -47246,7 +47246,6 @@ var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
 const UserUpdate = ()=>{
     _s();
-    var _s1 = $RefreshSig$();
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const [username, setUsername] = (0, _react.useState)(storedUser.Username);
     const [password, setPassword] = (0, _react.useState)(storedUser.Password);
@@ -47262,34 +47261,28 @@ const UserUpdate = ()=>{
     };
     console.log(data);
     const handleSubmit = (event)=>{
-        _s1();
-        (0, _react.useEffect)(()=>{
-            event.preventDefault();
-            fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
-                method: "PUT",
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`
-                }
-            }).then((response1)=>{
-                if (response1.ok) {
-                    alert("Account Successfully Updated!");
-                    return response1.json();
-                } else alert("Update Failed");
-            }).then((user)=>{
-                if (user) {
-                    localStorage.setItem("user", JSON.stringify(response.data));
-                    setUser(user);
-                }
-            }).catch((error)=>{
-                console.error(error);
-            });
-        }, [
-            user
-        ]);
+        event.preventDefault();
+        fetch(`https://kr-my-flix.onrender.com/users/${encodeURIComponent(storedUser.Username)}`, {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response1)=>{
+            if (response1.ok) {
+                alert("Account Successfully Updated!");
+                return response1.json();
+            } else alert("Update Failed");
+        }).then((user)=>{
+            if (user) {
+                localStorage.setItem("user", JSON.stringify(response.data));
+                setUser(user);
+            }
+        }).catch((error)=>{
+            console.error(error);
+        });
     };
-    _s1(handleSubmit, "OD7bBpZva5O2jO+Puf00hKivP7c=");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
         onSubmit: handleSubmit,
         children: [
@@ -47300,7 +47293,7 @@ const UserUpdate = ()=>{
                         children: "New Username:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 61,
+                        lineNumber: 58,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47312,13 +47305,13 @@ const UserUpdate = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 62,
+                        lineNumber: 59,
                         columnNumber: 15
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 60,
+                lineNumber: 57,
                 columnNumber: 11
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47328,7 +47321,7 @@ const UserUpdate = ()=>{
                         children: "New Password:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 73,
+                        lineNumber: 70,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47339,13 +47332,13 @@ const UserUpdate = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 74,
+                        lineNumber: 71,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 72,
+                lineNumber: 69,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47355,7 +47348,7 @@ const UserUpdate = ()=>{
                         children: "New Email:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 84,
+                        lineNumber: 81,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47366,13 +47359,13 @@ const UserUpdate = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 85,
+                        lineNumber: 82,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 83,
+                lineNumber: 80,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47382,7 +47375,7 @@ const UserUpdate = ()=>{
                         children: "New Birthday:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 95,
+                        lineNumber: 92,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47393,13 +47386,13 @@ const UserUpdate = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 96,
+                        lineNumber: 93,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 94,
+                lineNumber: 91,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -47408,13 +47401,13 @@ const UserUpdate = ()=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 105,
+                lineNumber: 102,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/user-update.jsx",
-        lineNumber: 59,
+        lineNumber: 56,
         columnNumber: 9
     }, undefined);
 };
