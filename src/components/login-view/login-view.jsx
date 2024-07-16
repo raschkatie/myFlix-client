@@ -10,7 +10,6 @@ export const LoginView = () => {
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
 
-
     const handleSubmit = (event) => {
         event.preventDefault();
 
