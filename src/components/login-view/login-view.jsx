@@ -2,6 +2,8 @@ import { React, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { setUser } from "../../redux/reducers/user/user";
 import { useDispatch } from "react-redux";
+import { setMovies } from "../../redux/reducers/movies";
+
 
 import '../../index.scss';
 
@@ -32,6 +34,23 @@ export const LoginView = () => {
                 localStorage.setItem("user", JSON.stringify(data.user));
                 localStorage.setItem("token", data.token);
                 dispatch(setUser(data.user, data.token));
+
+                fetch("https://kr-my-flix.onrender.com/movies", {
+                    headers: { Authorization: `Bearer ${data.token}` }
+                })
+                .then((response) => response.json())
+                .then((movies) => {
+                    const moviesApi = movies.map((movie) => ({
+                        id: movie._id,
+                        title: movie.Title,
+                        description: movie.Description,
+                        genre: movie.Genre,
+                        director: movie.Director,
+                        image: movie.ImagePath
+                    }));
+                    dispatch(setMovies(moviesApi));
+                })
+                .catch((error) => console.log("Error fetching movies:", error));
             } else {
                 alert("User Not Found");
             }

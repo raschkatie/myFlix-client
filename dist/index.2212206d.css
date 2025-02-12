@@ -1,3 +1,25 @@
+.movie-item {
+  text-align: left;
+  margin: 10px 0;
+}
+
+.movie-image {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.bold-title {
+  font-weight: 700;
+}
+
+.back-button {
+  color: #8b4513;
+  background-color: tan;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 12px;
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -13225,28 +13247,6 @@ a:hover {
 .delete-button {
   color: #fff;
   background-color: #8b0000;
-}
-
-.movie-item {
-  text-align: left;
-  margin: 10px 0;
-}
-
-.movie-image {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.bold-title {
-  font-weight: 700;
-}
-
-.back-button {
-  color: #8b4513;
-  background-color: tan;
-  border: none;
-  border-radius: 5px;
-  padding: 4px 12px;
 }
 
 .movie-card {
